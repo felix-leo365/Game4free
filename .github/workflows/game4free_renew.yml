@@ -26,6 +26,17 @@ jobs:
           repository: ${{ github.repository_owner }}/ActionNode-Start-Private
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           path: private
+    
+     - name: 🔍 查看私库内容
+       run: |
+         echo "当前目录:"
+         pwd
+
+         echo "private目录:"
+         ls -lah private
+
+         echo "所有文件:"
+         find private -type f
 
       - name: 🛡️ 启动 GOST 代理
         env:
