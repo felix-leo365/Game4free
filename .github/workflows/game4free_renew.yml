@@ -102,7 +102,15 @@ jobs:
           name: debug-screenshots-${{ github.run_number }}
           path: "*.png"
           if-no-files-found: ignore
-
+          
+      - name: 查看 workflow
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+       run: |
+         curl \
+           -H "Authorization: Bearer $GH_TOKEN" \
+           https://api.github.com/repos/${{ github.repository }}/actions/workflows
+           
       - name: 🔁 触发下一轮
         if: success()
         env:
