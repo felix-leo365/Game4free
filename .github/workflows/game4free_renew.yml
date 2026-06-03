@@ -111,7 +111,7 @@ jobs:
         run: |
           ROUND=${CURRENT_ROUND:-1}
           NEXT=$((ROUND + 1))
-          if [ "$NEXT" -le 8 ]; then
+          if [ "$NEXT" -le 4 ]; then
             echo "触发第 $NEXT 轮"
             curl -L -X POST \
               -H "Accept: application/vnd.github+json" \
@@ -120,3 +120,4 @@ jobs:
               -d "{\"ref\":\"${{ github.ref_name }}\",\"inputs\":{\"round\":\"$NEXT\"}}"
           else
             echo "✅ 已完成全部 4 轮"
+          fi
