@@ -92,7 +92,7 @@ jobs:
           GOST_PROXY: ${{ secrets.GOST_PROXY }}
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            python game4free_renew.py
+            python private/game4free_renew.py
 
       - name: 📸 上传截图
         if: always()
@@ -118,4 +118,4 @@ jobs:
               https://api.github.com/repos/${{ github.repository }}/actions/workflows/game4free_renew.yml/dispatches \
               -d "{\"ref\":\"${{ github.ref_name }}\",\"inputs\":{\"round\":\"$NEXT\"}}"
           else
-            echo "✅ 已完成全部 8 轮"
+            echo "✅ 已完成全部 4 轮"
