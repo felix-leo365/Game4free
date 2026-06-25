@@ -5,8 +5,8 @@ permissions:
   contents: read
 
 on:
-  schedule:
-    - cron: '1 */5 * * *'
+  #schedule:
+  #  - cron: '1 */5 * * *'
   workflow_dispatch:
     inputs:
       round:
